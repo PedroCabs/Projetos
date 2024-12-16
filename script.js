@@ -1,22 +1,18 @@
-player1 = window.document.querySelector(".img1")
+btn = document.getElementById("btn").addEventListener('click', clicar)
+var pont1 = 0 
+var pont2 = 0 
+var draw = 0
+
+
+
+
+
+function clicar(){
+    player1 = window.document.querySelector(".img1")
 player2 =  window.document.querySelector(".img2")
- alenumber1 = Math.floor(Math.random(1) * 6)
-alenumber2 = Math.floor(Math.random(1) * 6)
+ alenumber1 = Math.floor(Math.random() * (7 - 1) + 1)
+alenumber2 = Math.floor(Math.random() * (7 - 1) + 1 )
 res = window.document.getElementById("h1")
-
-
-// Resultado
-
-if (alenumber1 > alenumber2){
-    res.innerHTML = 'O Player 1 Venceu!'
-} else if (alenumber1 < alenumber2){
-    res.innerHTML = 'O Player 2 Venceu!'
-} else {
-    res.innerHTML = 'Empate'
-}
-
-
-
 
 //Dado do Player 1
 if (alenumber1 == 1){
@@ -45,7 +41,26 @@ if (alenumber2 == 1){
     player2.src = "images/dado5.png"
 } else {
     player2.src = "images/dado6.png"
-}2
+}
+
+
+// Resultado
+
+if (alenumber1 > alenumber2){
+    res.innerHTML = 'O Player 1 Venceu!'
+    pont1 = pont1 + 1
+    pl1.innerHTML = `Player1: ${pont1} pontos`
+} else if (alenumber1 < alenumber2){
+    res.innerHTML = 'O Player 2 Venceu!'
+    pont2 = pont2 + 1
+    pl2.innerHTML = `Player2: ${pont2} pontos`
+} else {
+    res.innerHTML = 'Empate'
+    draw++
+    emp.innerHTML = `Empates: ${draw} empates`
+}
+}
+
 
 
 
